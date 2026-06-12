@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Альмира Тимургалеева | AI-портфолио</title>
+    <!-- Google Fonts: современные шрифты -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0B0C10;
+            background-image: radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.08) 0%, rgba(15, 20, 36, 0.95) 90%);
+            font-family: 'Inter', sans-serif;
+            color: #EDF2F8;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* контейнер */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem;
+        }
+
+        /* ========== ГРАДИЕНТНЫЙ ЗАГОЛОВОК С ПРОЗРАЧНОСТЬЮ ========== */
+        .gradient-hero {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .main-title {
+            font-family: 'Space Grotesk', monospace;
+            font-size: clamp(2.4rem, 8vw, 4.8rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #FFFFFF 0%, #A855F7 40%, #3B82F6 80%, #06B6D4 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: shimmer 6s linear infinite;
+            margin-bottom: 0.75rem;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+
+        /* УВЕЛИЧЕННОЕ ИМЯ — ключевое изменение */
+        .subtitle {
+            font-family: 'Space Grotesk', monospace;
+            font-size: clamp(2.2rem, 7vw, 3.8rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: linear-gradient(120deg, #E2E8F0, #D8B4FE, #A78BFA);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-top: 0.25rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 12px rgba(168,85,247,0.3);
+            line-height: 1.2;
+        }
+
+        /* разделители и заголовки секций */
+        .section-header {
+            margin: 3rem 0 2rem 0;
+            position: relative;
+        }
+
+        .section-header h2 {
+            font-size: clamp(1.6rem, 5vw, 2.3rem);
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            background: linear-gradient(135deg, #E2E8F0, #A78BFA);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+            border-left: 5px solid #A855F7;
+            padding-left: 1rem;
+        }
+
+        /* сетка карточек навыков */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.8rem;
+            margin-top: 1rem;
+        }
+
+        /* карточка с анимацией при наведении */
+        .skill-card {
+            background: rgba(18, 22, 40, 0.65);
+            backdrop-filter: blur(10px);
+            border-radius: 28px;
+            padding: 1.6rem 1.5rem;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.3);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(168, 85, 247, 0.6);
+            background: rgba(25, 30, 55, 0.85);
+            box-shadow: 0 25px 35px -12px rgba(139, 92, 246, 0.35);
+        }
+
+        .skill-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(145deg, #F0F3FA, #C4B5FD);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+            letter-spacing: -0.3px;
+            border-left: 3px solid #A855F7;
+            padding-left: 0.75rem;
+        }
+
+        /* маркированный список (иконки) */
+        .skill-card ul {
+            list-style: none;
+            margin: 1rem 0 1.2rem 0;
+        }
+
+        .skill-card li {
+            margin-bottom: 0.7rem;
+            font-size: 0.92rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            color: #CBD5E1;
+        }
+
+        .skill-card li::before {
+            content: "✦";
+            color: #C084FC;
+            font-weight: 600;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        /* выделенный блок кейса (пример) */
+        .case-block {
+            background: linear-gradient(120deg, rgba(99, 102, 241, 0.1), rgba(168, 85, 247, 0.08));
+            border-left: 4px solid #A855F7;
+            padding: 0.9rem 1rem;
+            border-radius: 20px;
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            transition: 0.2s;
+            font-weight: 450;
+            color: #E2E8F0;
+        }
+
+        .case-block strong {
+            color: #F0ABFC;
+            font-weight: 600;
+            letter-spacing: -0.2px;
+        }
+
+        /* теги (сетка инструментов) */
+        .tools-tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.85rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            background: rgba(45, 55, 85, 0.6);
+            backdrop-filter: blur(4px);
+            padding: 0.5rem 1.2rem;
+            border-radius: 60px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: -0.2px;
+            color: #DDDDFF;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            transition: all 0.25s ease;
+            cursor: default;
+        }
+
+        .tag:hover {
+            background: #8B5CF6;
+            color: white;
+            border-color: #C084FC;
+            transform: scale(1.03);
+            box-shadow: 0 6px 14px rgba(139, 92, 246, 0.3);
+        }
+
+        /* акцентные элементы */
+        .accent-separator {
+            height: 2px;
+            background: linear-gradient(90deg, #A855F7, #3B82F6, #06B6D4);
+            width: 80px;
+            margin: 1rem 0 0 0;
+            border-radius: 5px;
+        }
+
+        /* дополнительное оформление для адаптива */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.2rem 1rem 2.5rem;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 1.3rem;
+            }
+            .skill-card {
+                padding: 1.3rem;
+            }
+            .tag {
+                font-size: 0.75rem;
+                padding: 0.4rem 1rem;
+            }
+            .section-header {
+                margin-top: 2rem;
+            }
+            .subtitle {
+                font-size: clamp(1.8rem, 6vw, 3rem);
+            }
+        }
+
+        /* декоративные дополнения */
+        .footer-note {
+            margin-top: 3.5rem;
+            text-align: center;
+            font-size: 0.75rem;
+            opacity: 0.6;
+            border-top: 1px solid rgba(139, 92, 246, 0.2);
+            padding-top: 2rem;
+        }
+
+        /* плавный скролл */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* кастомные шрифты для читаемости */
+        p, li, .case-block {
+            font-weight: 400;
+        }
+
+        .highlight {
+            color: #C084FC;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Герой с градиентным прозрачным текстом и УВЕЛИЧЕННЫМ ИМЕНЕМ -->
+    <div class="gradient-hero">
+        <h1 class="main-title">ПОРТФОЛИО AI-навыков</h1>
+        <!-- Текст "ТИМУРГАЛЕЕВА АЛЬМИРА" значительно увеличен -->
+        <div class="subtitle">ТИМУРГАЛЕЕВА АЛЬМИРА</div>
+        <div class="accent-separator" style="margin: 1rem auto 0 auto;"></div>
+    </div>
+
+    <!-- секция 1: Ключевые AI-навыки и практические кейсы -->
+    <div class="section-header">
+        <h2>1. Ключевые AI-навыки и практические кейсы</h2>
+    </div>
+
+    <!-- Сетка карточек (навыки + кейсы) -->
+    <div class="skills-grid">
+        
+        <!-- Карточка 1.1 -->
+        <div class="skill-card">
+            <h3>1.1 Эффективная работа с нейросетями</h3>
+            <ul>
+                <li>Различаю ИИ, нейросети, ChatGPT, умею объяснять разницу простым языком.</li>
+                <li>Экономлю время на поиске информации: чат-боты вместо Google.</li>
+                <li>Применяю нейросети для личной эффективности: составление диет, подбор тренировок, обучение языкам.</li>
+            </ul>
+            <div class="case-block">
+                <strong>📌 Пример кейса:</strong> Оптимизировала рутинные задачи в финансово-экономическом отделе, автоматизировав поиск необходимой финансовой информации для оперативных отчетов.
+            </div>
+        </div>
+
+        <!-- Карточка 1.2 промт-инжиниринг -->
+        <div class="skill-card">
+            <h3>1.2 Промт-инжиниринг</h3>
+            <ul>
+                <li>Владею всеми техниками: последовательные, ролевые, диалоговые промты, кастомизация под задачу.</li>
+                <li>Использую фреймворки для генерации сложных бизнес-текстов и аналитики.</li>
+            </ul>
+            <div class="case-block">
+                <strong>📌 Пример кейса:</strong> Разработала промты для генерации управленческих решений в сложных ситуациях - получила сокращение времени на анализ на 70%.
+            </div>
+        </div>
+
+        <!-- Карточка 1.3 Работа с текстами и контентом -->
+        <div class="skill-card">
+            <h3>1.3 Работа с текстами и контентом</h3>
+            <ul>
+                <li>Автоматизация написания регламентов, писем, презентаций, аналитических записок.</li>
+                <li>Использую нейросети для генерации контент-стратегий, статей, презентаций, КП.</li>
+            </ul>
+            <div class="case-block">
+                <strong>📌 Пример кейса:</strong> С помощью ChatGPT и Midjourney создала более 30 презентаций и статей для отдела маркетинга.
+            </div>
+        </div>
+
+        <!-- Карточка 1.4 Аналитика и финансы -->
+        <div class="skill-card">
+            <h3>1.4 Аналитика и финансы</h3>
+            <ul>
+                <li>Автоматизирую обработку выписок, подготовку финансовых моделей, анализ отчетности.</li>
+                <li>Разработка дашбордов и методик финансового анализа с помощью AI.</li>
+            </ul>
+            <div class="case-block">
+                <strong>📌 Пример кейса:</strong> Построила систему автоматического анализа договоров и выявления рисков - 90% кейсов закрываются без юриста.
+            </div>
+        </div>
+
+        <!-- Карточка 1.5 Автоматизация процессов -->
+        <div class="skill-card">
+            <h3>1.5 Автоматизация процессов</h3>
+            <ul>
+                <li>Интеграция нейросетей с Google Таблицами, автоматизация расчетов, нормализация данных.</li>
+                <li>Внедрение AI-ассистентов в бизнес-процессы (финансы, HR, продажи).</li>
+            </ul>
+            <div class="case-block">
+                <strong>📌 Пример кейса:</strong> Написала скрипт для автосоздания KPI-дашбордов в Google Sheets с использованием GPT.
+            </div>
+        </div>
+
+        <!-- Карточка 1.6 Уникальные решения для бизнеса -->
+        <div class="skill-card">
+            <h3>1.6 Уникальные решения для бизнеса</h3>
+            <ul>
+                <li>Автоматизация согласования заявок через Telegram-ботов.</li>
+                <li>Построение системы "цифрового ассистента для руководителя".</li>
+            </ul>
+            <div class="case-block">
+                <strong>📌 Пример кейса:</strong> Реализовала систему моментальных бонусов через Telegram-бота и Google Таблицу (case inside).
+            </div>
+        </div>
+    </div>
+
+    <!-- секция 2: Инструменты, которые использую (теги) -->
+    <div class="section-header" style="margin-top: 3rem;">
+        <h2>2. Инструменты, которые использую</h2>
+    </div>
+
+    <div class="tools-tag-cloud">
+        <span class="tag">ChatGPT</span>
+        <span class="tag">Gemini</span>
+        <span class="tag">Copilot</span>
+        <span class="tag">Midjourney</span>
+        <span class="tag">Krea</span>
+        <span class="tag">ElevenLabs</span>
+        <span class="tag">Google Sheets + GPT</span>
+        <span class="tag">Make</span>
+        <span class="tag">Zapier</span>
+        <span class="tag">Telegram-боты</span>
+        <span class="tag">custom scripts</span>
+        <span class="tag">Сервисы проверки документов</span>
+        <span class="tag">Генерация подкастов</span>
+        <span class="tag">Генерация изображений</span>
+        <span class="tag">AI-аналитика</span>
+    </div>
+
+    <!-- Дополнительная визуальная иерархия: акцентная строка -->
+    <div class="accent-separator" style="margin: 2rem 0 1rem 0; width: 140px;"></div>
+
+    <!-- небольшой блок с цифрами/достижениями (акцентные элементы) -->
+    <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 2rem;">
+        <div style="background: rgba(168,85,247,0.1); border-radius: 50px; padding: 0.5rem 1rem; backdrop-filter: blur(4px);">
+            ⚡ 70% времени сэкономлено на аналитике
+        </div>
+        <div style="background: rgba(59,130,246,0.1); border-radius: 50px; padding: 0.5rem 1rem; backdrop-filter: blur(4px);">
+            🧠 30+ презентаций и статей ИИ-генерация
+        </div>
+        <div style="background: rgba(6,182,212,0.1); border-radius: 50px; padding: 0.5rem 1rem; backdrop-filter: blur(4px);">
+            🤖 90% договоров анализируются AI
+        </div>
+    </div>
+
+    <div class="footer-note">
+        ✦ AI-эксперт | Промт-инжиниринг | Автоматизация бизнес-процессов ✦
+    </div>
+</div>
+
+</body>
+</html>
